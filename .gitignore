@@ -1,5 +1,2 @@
-# Ignore the data folder inside the unet directory
-unet/data/
-
-# Ignore the model folder inside the unet directory
-unet/model/
+# Ignore the data folder and its contents
+data/
