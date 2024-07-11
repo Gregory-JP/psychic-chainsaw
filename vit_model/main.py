@@ -105,6 +105,7 @@ def evaluate(model, loader, criterion, device):
     model.eval()
     total_loss = 0
     correct = 0
+    
     with torch.no_grad():
         for images, labels in loader:
             images, labels = images.to(device), labels.to(device)

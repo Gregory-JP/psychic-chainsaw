@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 from einops import rearrange
 
-
-# Definição do Vision Transformer (mesma definição usada no treinamento)
 class PatchEmbedding(nn.Module):
     def __init__(self, in_channels=3, patch_size=16, emb_size=768, img_size=224):
         super().__init__()
@@ -20,7 +18,6 @@ class PatchEmbedding(nn.Module):
         x = torch.cat((cls_tokens, x), dim=1)  # (B, N+1, emb_size)
         x += self.pos_emb
         return x
-
 
 class Attention(nn.Module):
     def __init__(self, emb_size, num_heads):
@@ -76,20 +73,28 @@ class VisionTransformer(nn.Module):
         x = self.head(x)
         return x
 
-# Função para carregar o modelo
 def load_model(filepath, device):
-    model = VisionTransformer()
-    model.load_state_dict(torch.load(filepath, map_location=device))
-    model.to(device)
-    model.eval()  # Coloca o modelo em modo de avaliação
+    model = VisionTransformer().to(device)
+    state_dict = torch.load(filepath, map_location=device)
+    
+    # Carregar apenas os pesos que existem no estado atual do modelo
+    model_state_dict = model.state_dict()
+    for key in list(state_dict.keys()):
+        if key not in model_state_dict:
+            print(f"Chave ignorada: {key}")
+            del state_dict[key]
+        elif state_dict[key].shape != model_state_dict[key].shape:
+            print(f"Tamanho incompatível para a chave: {key}")
+            del state_dict[key]
+    
+    model.load_state_dict(state_dict, strict=False)
     return model
 
 # Exemplo de uso
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = load_model('vit_model/vision_transformer.pth', device)
+model.eval()
 
-# Agora o modelo está carregado e pronto para fazer previsões
-# Exemplo de previsão
 dummy_input = torch.randn(1, 3, 224, 224).to(device)  # Substitua por uma imagem real
 output = model(dummy_input)
 print(output)
