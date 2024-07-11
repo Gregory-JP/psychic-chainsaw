@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from einops import rearrange
 
+
 # Definição do Vision Transformer (mesma definição usada no treinamento)
 class PatchEmbedding(nn.Module):
     def __init__(self, in_channels=3, patch_size=16, emb_size=768, img_size=224):
@@ -19,6 +20,7 @@ class PatchEmbedding(nn.Module):
         x = torch.cat((cls_tokens, x), dim=1)  # (B, N+1, emb_size)
         x += self.pos_emb
         return x
+
 
 class Attention(nn.Module):
     def __init__(self, emb_size, num_heads):
