@@ -166,7 +166,7 @@ if __name__ == '__main__':
         scheduler.step()
 
     print("Treinamento concluído.")
-    torch.save(model.state_dict(), 'vit_model/vision_transformer.pth')
+    torch.save(model.state_dict(), 'models/vision_transformer_cifar10.pth')
     print("Modelo salvo com sucesso.")
 
     # Plotar as métricas

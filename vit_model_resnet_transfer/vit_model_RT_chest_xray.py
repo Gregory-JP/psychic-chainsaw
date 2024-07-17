@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
     print("Treinamento concluído.")
 
-    torch.save(model.state_dict(), 'vit_model_resnet_transfer/custom_resnet_pneumonia.pth')
+    torch.save(model.state_dict(), 'models/custom_resnet_pneumonia.pth')
     print("Modelo salvo com sucesso.")
 
     # Plotar as métricas
