@@ -3,3 +3,5 @@ data/
 
 # ignore the pth files
 *.pth
+
+wandb/
