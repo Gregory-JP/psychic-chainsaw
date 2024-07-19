@@ -1,0 +1,48 @@
+wandb_version: 1
+
+learning_rate:
+  desc: null
+  value: 0.0003
+batch_size:
+  desc: null
+  value: 32
+num_epochs:
+  desc: null
+  value: 20
+optimizer:
+  desc: null
+  value: Adam
+loss_function:
+  desc: null
+  value: BCEWithLogitsLoss
+model:
+  desc: null
+  value: ResNet18
+dataset:
+  desc: null
+  value: NIH Chest X-rays
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.9
+    cli_version: 0.17.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1721257266
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      - 105
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.11.9
+      5: 0.17.4
+      8:
+      - 3
+      - 5
+      13: windows-amd64

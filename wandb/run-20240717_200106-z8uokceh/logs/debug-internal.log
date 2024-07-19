@@ -1,0 +1,101 @@
+2024-07-17 20:01:06,070 INFO    StreamThr :1940 [internal.py:wandb_internal():85] W&B internal server running at pid: 1940, started at: 2024-07-17 20:01:06.069654
+2024-07-17 20:01:06,071 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status
+2024-07-17 20:01:06,073 INFO    WriterThread:1940 [datastore.py:open_for_write():87] open: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\run-z8uokceh.wandb
+2024-07-17 20:01:06,073 DEBUG   SenderThread:1940 [sender.py:send():379] send: header
+2024-07-17 20:01:06,101 DEBUG   SenderThread:1940 [sender.py:send():379] send: run
+2024-07-17 20:01:07,105 INFO    SenderThread:1940 [dir_watcher.py:__init__():211] watching files in: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\files
+2024-07-17 20:01:07,111 INFO    SenderThread:1940 [sender.py:_start_run_threads():1188] run started: z8uokceh with start time 1721257266.071654
+2024-07-17 20:01:07,112 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: check_version
+2024-07-17 20:01:07,112 DEBUG   SenderThread:1940 [sender.py:send_request():406] send_request: check_version
+2024-07-17 20:01:07,356 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: run_start
+2024-07-17 20:01:07,375 DEBUG   HandlerThread:1940 [system_info.py:__init__():26] System info init
+2024-07-17 20:01:07,375 DEBUG   HandlerThread:1940 [system_info.py:__init__():41] System info init done
+2024-07-17 20:01:07,375 INFO    HandlerThread:1940 [system_monitor.py:start():194] Starting system monitor
+2024-07-17 20:01:07,375 INFO    SystemMonitor:1940 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-17 20:01:07,375 INFO    HandlerThread:1940 [system_monitor.py:probe():214] Collecting system info
+2024-07-17 20:01:07,379 INFO    SystemMonitor:1940 [interfaces.py:start():188] Started cpu monitoring
+2024-07-17 20:01:07,379 INFO    SystemMonitor:1940 [interfaces.py:start():188] Started disk monitoring
+2024-07-17 20:01:07,380 INFO    SystemMonitor:1940 [interfaces.py:start():188] Started gpu monitoring
+2024-07-17 20:01:07,386 INFO    SystemMonitor:1940 [interfaces.py:start():188] Started memory monitoring
+2024-07-17 20:01:07,394 INFO    SystemMonitor:1940 [interfaces.py:start():188] Started network monitoring
+2024-07-17 20:01:07,401 DEBUG   HandlerThread:1940 [system_info.py:probe():152] Probing system
+2024-07-17 20:01:07,402 DEBUG   HandlerThread:1940 [system_info.py:_probe_git():137] Probing git
+2024-07-17 20:01:07,407 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:07,407 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:07,456 DEBUG   HandlerThread:1940 [system_info.py:_probe_git():145] Probing git done
+2024-07-17 20:01:07,456 DEBUG   HandlerThread:1940 [system_info.py:probe():200] Probing system done
+2024-07-17 20:01:07,456 DEBUG   HandlerThread:1940 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.9', 'heartbeatAt': '2024-07-17T23:01:07.401627', 'startedAt': '2024-07-17T23:01:06.057625', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'e:\\psychic-chainsaw\\vit_model_resnet_transfer\\vit_model_RT_nih_crx8.py', 'codePathLocal': 'vit_model_resnet_transfer\\vit_model_RT_nih_crx8.py', 'codePath': 'vit_model_resnet_transfer\\vit_model_RT_nih_crx8.py', 'git': {'remote': 'https://github.com/Gregory-JP/psychic-chainsaw.git', 'commit': '086434d6105b6409f763dbe5190f501a2a01878f'}, 'email': 'gregorypitthan@furg.br', 'root': 'E:/psychic-chainsaw', 'host': 'Gregory-JP', 'username': 'grego', 'executable': 'C:\\Users\\grego\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3901.0, 'min': 0.0, 'max': 3901.0}, 'cpu_freq_per_core': [{'current': 3901.0, 'min': 0.0, 'max': 3901.0}], 'disk': {'/': {'total': 953.8525352478027, 'used': 872.2147827148438}}, 'gpu': 'NVIDIA GeForce RTX 4060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4060', 'memory_total': 8585740288}], 'memory': {'total': 15.38986587524414}}
+2024-07-17 20:01:07,464 INFO    HandlerThread:1940 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-17 20:01:07,464 INFO    HandlerThread:1940 [system_monitor.py:probe():227] Publishing system info
+2024-07-17 20:01:07,464 INFO    HandlerThread:1940 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-17 20:01:07,468 DEBUG   SenderThread:1940 [sender.py:send():379] send: files
+2024-07-17 20:01:07,468 INFO    SenderThread:1940 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2024-07-17 20:01:07,543 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: python_packages
+2024-07-17 20:01:07,543 DEBUG   SenderThread:1940 [sender.py:send_request():406] send_request: python_packages
+2024-07-17 20:01:07,543 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: stop_status
+2024-07-17 20:01:07,544 DEBUG   SenderThread:1940 [sender.py:send_request():406] send_request: stop_status
+2024-07-17 20:01:07,544 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:07,874 DEBUG   SenderThread:1940 [sender.py:send():379] send: telemetry
+2024-07-17 20:01:08,113 INFO    Thread-16 :1940 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\files\requirements.txt
+2024-07-17 20:01:08,113 INFO    Thread-16 :1940 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\files\output.log
+2024-07-17 20:01:08,113 INFO    Thread-16 :1940 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\files\wandb-metadata.json
+2024-07-17 20:01:08,487 INFO    wandb-upload_0:1940 [upload_job.py:push():130] Uploaded file C:\Users\grego\AppData\Local\Temp\tmpcnyvp23gwandb\fabkcm0k-wandb-metadata.json
+2024-07-17 20:01:08,557 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:09,411 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:09,412 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:09,565 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:10,137 INFO    Thread-16 :1940 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\psychic-chainsaw\wandb\run-20240717_200106-z8uokceh\files\output.log
+2024-07-17 20:01:10,566 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:11,433 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:11,433 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:11,578 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:11,927 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 20:01:12,593 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:13,450 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:13,450 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:13,594 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:14,607 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:15,468 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:15,468 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:15,620 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:16,634 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:17,489 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:17,489 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:17,566 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 20:01:17,646 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:18,658 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:19,505 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:19,505 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:19,670 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:20,684 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:21,526 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:21,526 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:21,695 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:22,549 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: stop_status
+2024-07-17 20:01:22,549 DEBUG   SenderThread:1940 [sender.py:send_request():406] send_request: stop_status
+2024-07-17 20:01:22,706 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:23,160 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 20:01:23,543 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:23,543 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:23,721 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:24,735 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:25,563 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:25,563 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:25,749 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:26,764 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:27,573 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:27,573 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:27,778 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:28,574 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 20:01:28,782 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:29,589 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:29,589 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:29,791 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:30,804 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:31,601 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:31,601 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:31,819 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:32,832 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 20:01:33,590 DEBUG   HandlerThread:1940 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 20:01:33,611 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 20:01:33,611 ERROR   gpu       :1940 [interfaces.py:monitor():142] Failed to sample metric: Not Supported

@@ -1,0 +1,103 @@
+
+Iniciando época 1/50
+Epoch 1/50, Train Loss: 0.1184555324125875, Val Loss: 0.17709676921367645, Accuracy: 0.9375
+Iniciando época 2/50
+Epoch 2/50, Train Loss: 0.06776856843587811, Val Loss: 0.3020707666873932, Accuracy: 0.8125
+Iniciando época 3/50
+Epoch 3/50, Train Loss: 0.06049744766548367, Val Loss: 0.4299123287200928, Accuracy: 0.6875
+Iniciando época 4/50
+Epoch 4/50, Train Loss: 0.04670511867188237, Val Loss: 0.14774459600448608, Accuracy: 0.9375
+Iniciando época 5/50
+Epoch 5/50, Train Loss: 0.034955648808208714, Val Loss: 0.06154344230890274, Accuracy: 1.0
+Iniciando época 6/50
+Epoch 6/50, Train Loss: 0.022764676713321837, Val Loss: 0.26861003041267395, Accuracy: 0.875
+Iniciando época 7/50
+Epoch 7/50, Train Loss: 0.018843833082841217, Val Loss: 0.1646096110343933, Accuracy: 0.875
+Iniciando época 8/50
+Epoch 8/50, Train Loss: 0.013751103582740561, Val Loss: 0.3290303647518158, Accuracy: 0.875
+Iniciando época 9/50
+Epoch 9/50, Train Loss: 0.018890526099987558, Val Loss: 0.26366564631462097, Accuracy: 0.875
+Iniciando época 10/50
+Epoch 10/50, Train Loss: 0.01345699991276659, Val Loss: 0.15252816677093506, Accuracy: 0.875
+Iniciando época 11/50
+Epoch 11/50, Train Loss: 0.00872379838506137, Val Loss: 0.47345730662345886, Accuracy: 0.8125
+Iniciando época 12/50
+Epoch 12/50, Train Loss: 0.0034517569730252574, Val Loss: 0.22952620685100555, Accuracy: 0.875
+Iniciando época 13/50
+Epoch 13/50, Train Loss: 0.0021135639513562795, Val Loss: 0.14323151111602783, Accuracy: 0.875
+Iniciando época 14/50
+Epoch 14/50, Train Loss: 0.0053874453061197435, Val Loss: 0.5603779554367065, Accuracy: 0.75
+Iniciando época 15/50
+Epoch 15/50, Train Loss: 0.004467092614415233, Val Loss: 0.4992589056491852, Accuracy: 0.75
+Iniciando época 16/50
+Epoch 16/50, Train Loss: 0.0043818491276787835, Val Loss: 0.14506444334983826, Accuracy: 0.9375
+Iniciando época 17/50
+Epoch 17/50, Train Loss: 0.002041381400969862, Val Loss: 0.23349468410015106, Accuracy: 0.9375
+Iniciando época 18/50
+Epoch 18/50, Train Loss: 0.0024258741663277517, Val Loss: 0.1155865341424942, Accuracy: 0.9375
+Iniciando época 19/50
+Epoch 19/50, Train Loss: 0.002586095108210675, Val Loss: 0.20048579573631287, Accuracy: 0.875
+Iniciando época 20/50
+Epoch 20/50, Train Loss: 0.0029278800485689946, Val Loss: 0.09460930526256561, Accuracy: 1.0
+Iniciando época 21/50
+Epoch 21/50, Train Loss: 0.0015133879393156322, Val Loss: 0.13564157485961914, Accuracy: 0.9375
+Iniciando época 22/50
+Epoch 22/50, Train Loss: 0.000816046094601871, Val Loss: 0.21873731911182404, Accuracy: 0.875
+Iniciando época 23/50
+Epoch 23/50, Train Loss: 0.0008303476211849166, Val Loss: 0.2152358591556549, Accuracy: 0.8125
+Iniciando época 24/50
+Epoch 24/50, Train Loss: 0.0004920581458536394, Val Loss: 0.24656996130943298, Accuracy: 0.875
+Iniciando época 25/50
+Epoch 25/50, Train Loss: 0.0012301951189713975, Val Loss: 0.2351064532995224, Accuracy: 0.875
+Iniciando época 26/50
+Epoch 26/50, Train Loss: 0.0004833839788027336, Val Loss: 0.290677934885025, Accuracy: 0.875
+Iniciando época 27/50
+Epoch 27/50, Train Loss: 0.0004492389506723252, Val Loss: 0.2958256006240845, Accuracy: 0.8125
+Iniciando época 28/50
+Epoch 28/50, Train Loss: 0.0002820929683790616, Val Loss: 0.23687812685966492, Accuracy: 0.875
+Iniciando época 29/50
+Epoch 29/50, Train Loss: 0.00030394255017941713, Val Loss: 0.23194067180156708, Accuracy: 0.875
+Iniciando época 30/50
+Epoch 30/50, Train Loss: 0.0003043769007445844, Val Loss: 0.17411041259765625, Accuracy: 0.875
+Iniciando época 31/50
+Epoch 31/50, Train Loss: 0.0003787461279725736, Val Loss: 0.23150813579559326, Accuracy: 0.8125
+Iniciando época 32/50
+Epoch 32/50, Train Loss: 0.008578168491095854, Val Loss: 0.23317991197109222, Accuracy: 0.8125
+Iniciando época 33/50
+Epoch 33/50, Train Loss: 0.00019486785574924725, Val Loss: 0.1910785585641861, Accuracy: 0.8125
+Iniciando época 34/50
+Epoch 34/50, Train Loss: 0.0003396220550946663, Val Loss: 0.20227180421352386, Accuracy: 0.875
+Iniciando época 35/50
+Epoch 35/50, Train Loss: 0.00034360018518804773, Val Loss: 0.23342321813106537, Accuracy: 0.8125
+Iniciando época 36/50
+Epoch 36/50, Train Loss: 0.00033929569223907095, Val Loss: 0.17543312907218933, Accuracy: 0.875
+Iniciando época 37/50
+Epoch 37/50, Train Loss: 0.0008580156264860937, Val Loss: 0.13946852087974548, Accuracy: 0.875
+Iniciando época 38/50
+Epoch 38/50, Train Loss: 0.0003984580559233215, Val Loss: 0.18320335447788239, Accuracy: 0.8125
+Iniciando época 39/50
+Epoch 39/50, Train Loss: 0.0003521729009283101, Val Loss: 0.166595458984375, Accuracy: 0.9375
+Iniciando época 40/50
+Epoch 40/50, Train Loss: 0.009332560528458262, Val Loss: 0.20037898421287537, Accuracy: 0.875
+Iniciando época 41/50
+Epoch 41/50, Train Loss: 0.00027801761506525283, Val Loss: 0.1955375075340271, Accuracy: 0.875
+Iniciando época 42/50
+Epoch 42/50, Train Loss: 0.00015983579714605413, Val Loss: 0.2099115550518036, Accuracy: 0.875
+Iniciando época 43/50
+Epoch 43/50, Train Loss: 0.0003845565295292556, Val Loss: 0.24052584171295166, Accuracy: 0.8125
+Iniciando época 44/50
+Epoch 44/50, Train Loss: 0.0004855483039025149, Val Loss: 0.1677890568971634, Accuracy: 0.875
+Iniciando época 45/50
+Epoch 45/50, Train Loss: 0.0001954270606757673, Val Loss: 0.16019077599048615, Accuracy: 0.875
+Iniciando época 46/50
+Epoch 46/50, Train Loss: 0.0002459232335441683, Val Loss: 0.20905673503875732, Accuracy: 0.875
+Iniciando época 47/50
+Epoch 47/50, Train Loss: 0.00026331654538406184, Val Loss: 0.1593346893787384, Accuracy: 0.875
+Iniciando época 48/50
+Epoch 48/50, Train Loss: 0.00016395052883522642, Val Loss: 0.18963269889354706, Accuracy: 0.875
+Iniciando época 49/50
+Epoch 49/50, Train Loss: 0.0003260348472127154, Val Loss: 0.16571661829948425, Accuracy: 0.875
+Iniciando época 50/50
+Epoch 50/50, Train Loss: 0.00019812078837968088, Val Loss: 0.16545948386192322, Accuracy: 0.875
+Treinamento concluído.
+Modelo salvo com sucesso.

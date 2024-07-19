@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.11.9",
+    "heartbeatAt": "2024-07-18T18:21:08.884723",
+    "startedAt": "2024-07-18T18:21:04.848219",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "e:\\psychic-chainsaw\\vit_model\\vit_model_chest_xray.py",
+    "codePathLocal": "vit_model\\vit_model_chest_xray.py",
+    "codePath": "vit_model\\vit_model_chest_xray.py",
+    "git": {
+        "remote": "https://github.com/Gregory-JP/psychic-chainsaw.git",
+        "commit": "086434d6105b6409f763dbe5190f501a2a01878f"
+    },
+    "email": "gregorypitthan@furg.br",
+    "root": "E:/psychic-chainsaw",
+    "host": "Gregory-JP",
+    "username": "grego",
+    "executable": "C:\\Users\\grego\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3901.0,
+        "min": 0.0,
+        "max": 3901.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3901.0,
+            "min": 0.0,
+            "max": 3901.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 953.8525352478027,
+            "used": 872.2247123718262
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4060",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 15.38986587524414
+    }
+}

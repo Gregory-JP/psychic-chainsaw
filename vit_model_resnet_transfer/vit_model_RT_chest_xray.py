@@ -6,7 +6,19 @@ from torchvision import datasets, transforms, models
 from torchvision.models import ResNet18_Weights
 import torch.cuda.amp as amp
 import matplotlib.pyplot as plt
+import wandb
 
+# Funções para configurar e usar o wandb
+def setup_wandb(project_name, run_name, config):
+    wandb.init(project=project_name, name=run_name, config=config)
+
+def log_metrics(epoch, train_loss, val_loss, val_accuracy):
+    wandb.log({
+        'epoch': epoch,
+        'train_loss': train_loss,
+        'val_loss': val_loss,
+        'val_accuracy': val_accuracy
+    })
 
 # Definição do modelo CustomResNet
 class CustomResNet(nn.Module):
@@ -62,8 +74,20 @@ def evaluate(model, loader, criterion, device):
 
 
 if __name__ == '__main__':
-
     # Configurações
+    config = {
+        'learning_rate': 3e-4,
+        'batch_size': 32,
+        'num_epochs': 50,
+        'optimizer': 'Adam',
+        'loss_function': 'CrossEntropyLoss',
+        'model': 'ResNet18',
+        'dataset': 'Chest X-ray Pneumonia'
+    }
+
+    # Autenticação no wandb
+    wandb.login(key='79d389395f5ad034f60cd189e8d6b583b5061b5a')
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     if torch.cuda.is_available():
@@ -109,6 +133,9 @@ if __name__ == '__main__':
     val_losses = []
     val_accuracies = []
 
+    # Inicializar o wandb
+    setup_wandb(project_name='Chest-Xray-Pneumonia', run_name='ResNet18_Experiment', config=config)
+
     # Loop de Treinamento
     for epoch in range(num_epochs):
         print(f"Iniciando época {epoch+1}/{num_epochs}")
@@ -122,6 +149,7 @@ if __name__ == '__main__':
         print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss}, Val Loss: {val_loss}, Accuracy: {val_acc}')
         scheduler.step()
 
+        log_metrics(epoch, train_loss, val_loss, val_acc)
 
     print("Treinamento concluído.")
 
@@ -147,13 +175,5 @@ if __name__ == '__main__':
     plt.title('Accuracy over Epochs (chest_xray)')
 
     plt.tight_layout()
-    plt.show()
-
-    # # Carregar o modelo salvo e testar
-    # loaded_model = load_model('vit_model_resnet_transfer/custom_resnet_pneumonia.pth', device)
-    # loaded_model.eval()
-
-    # # Exemplo de previsão com o modelo carregado
-    # dummy_input = torch.randn(1, 3, 224, 224).to(device)  # Substitua por uma imagem real
-    # output = loaded_model(dummy_input)
-    # print(output)
+    # plt.show()
+    plt.savefig('results/vit_RT_result_chest_xray.png')

@@ -1,0 +1,16 @@
+
+Iniciando época 1/50
+Traceback (most recent call last):
+  File "e:\psychic-chainsaw\vit_model_resnet_transfer\vit_model_RT_chest_xray.py", line 142, in <module>
+    train_loss = train(model, train_loader, criterion, optimizer, device, scaler)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\psychic-chainsaw\vit_model_resnet_transfer\vit_model_RT_chest_xray.py", line 52, in train
+    scaler.scale(loss).backward()
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\_tensor.py", line 525, in backward
+    torch.autograd.backward(
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\autograd\__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\autograd\graph.py", line 744, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

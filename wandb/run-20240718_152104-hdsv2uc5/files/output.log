@@ -1,0 +1,35 @@
+
+Iniciando época 1/50
+Traceback (most recent call last):
+  File "e:\psychic-chainsaw\vit_model\vit_model_chest_xray.py", line 218, in <module>
+    train_loss = train(model, train_loader, criterion, optimizer, device, scaler)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\psychic-chainsaw\vit_model\vit_model_chest_xray.py", line 129, in train
+    for images, labels in loader:
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py", line 1326, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\_utils.py", line 705, in reraise
+    raise exception
+PIL.UnidentifiedImageError: Caught UnidentifiedImageError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "e:\psychic-chainsaw\vit_model\vit_model_chest_xray.py", line 119, in __getitem__
+    image = Image.open(img_path).convert('RGB')
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\grego\AppData\Local\Programs\Python\Python311\Lib\site-packages\PIL\Image.py", line 3339, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'E:\\psychic-chainsaw\\data\\chest_xray\\train\\PNEUMONIA\\.DS_Store'

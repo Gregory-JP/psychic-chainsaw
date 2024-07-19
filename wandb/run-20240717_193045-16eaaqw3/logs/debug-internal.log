@@ -1,0 +1,254 @@
+2024-07-17 19:30:45,395 INFO    StreamThr :8028 [internal.py:wandb_internal():85] W&B internal server running at pid: 8028, started at: 2024-07-17 19:30:45.395037
+2024-07-17 19:30:45,396 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status
+2024-07-17 19:30:45,398 INFO    WriterThread:8028 [datastore.py:open_for_write():87] open: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\run-16eaaqw3.wandb
+2024-07-17 19:30:45,399 DEBUG   SenderThread:8028 [sender.py:send():379] send: header
+2024-07-17 19:30:45,432 DEBUG   SenderThread:8028 [sender.py:send():379] send: run
+2024-07-17 19:30:45,985 INFO    SenderThread:8028 [dir_watcher.py:__init__():211] watching files in: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files
+2024-07-17 19:30:45,991 INFO    SenderThread:8028 [sender.py:_start_run_threads():1188] run started: 16eaaqw3 with start time 1721255445.396036
+2024-07-17 19:30:45,992 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: check_version
+2024-07-17 19:30:45,992 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: check_version
+2024-07-17 19:30:46,128 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: run_start
+2024-07-17 19:30:46,149 DEBUG   HandlerThread:8028 [system_info.py:__init__():26] System info init
+2024-07-17 19:30:46,149 DEBUG   HandlerThread:8028 [system_info.py:__init__():41] System info init done
+2024-07-17 19:30:46,149 INFO    HandlerThread:8028 [system_monitor.py:start():194] Starting system monitor
+2024-07-17 19:30:46,149 INFO    SystemMonitor:8028 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-17 19:30:46,149 INFO    HandlerThread:8028 [system_monitor.py:probe():214] Collecting system info
+2024-07-17 19:30:46,153 INFO    SystemMonitor:8028 [interfaces.py:start():188] Started cpu monitoring
+2024-07-17 19:30:46,154 INFO    SystemMonitor:8028 [interfaces.py:start():188] Started disk monitoring
+2024-07-17 19:30:46,154 INFO    SystemMonitor:8028 [interfaces.py:start():188] Started gpu monitoring
+2024-07-17 19:30:46,159 INFO    SystemMonitor:8028 [interfaces.py:start():188] Started memory monitoring
+2024-07-17 19:30:46,168 INFO    SystemMonitor:8028 [interfaces.py:start():188] Started network monitoring
+2024-07-17 19:30:46,172 DEBUG   HandlerThread:8028 [system_info.py:probe():152] Probing system
+2024-07-17 19:30:46,173 DEBUG   HandlerThread:8028 [system_info.py:_probe_git():137] Probing git
+2024-07-17 19:30:46,177 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:46,177 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:46,227 DEBUG   HandlerThread:8028 [system_info.py:_probe_git():145] Probing git done
+2024-07-17 19:30:46,227 DEBUG   HandlerThread:8028 [system_info.py:probe():200] Probing system done
+2024-07-17 19:30:46,227 DEBUG   HandlerThread:8028 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.9', 'heartbeatAt': '2024-07-17T22:30:46.172900', 'startedAt': '2024-07-17T22:30:45.383111', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'e:\\psychic-chainsaw\\vit_model_resnet_transfer\\vit_model_RT_chest_xray.py', 'codePathLocal': 'vit_model_resnet_transfer\\vit_model_RT_chest_xray.py', 'codePath': 'vit_model_resnet_transfer\\vit_model_RT_chest_xray.py', 'git': {'remote': 'https://github.com/Gregory-JP/psychic-chainsaw.git', 'commit': '086434d6105b6409f763dbe5190f501a2a01878f'}, 'email': 'gregorypitthan@furg.br', 'root': 'E:/psychic-chainsaw', 'host': 'Gregory-JP', 'username': 'grego', 'executable': 'C:\\Users\\grego\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3901.0, 'min': 0.0, 'max': 3901.0}, 'cpu_freq_per_core': [{'current': 3901.0, 'min': 0.0, 'max': 3901.0}], 'disk': {'/': {'total': 953.8525352478027, 'used': 872.2141036987305}}, 'gpu': 'NVIDIA GeForce RTX 4060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4060', 'memory_total': 8585740288}], 'memory': {'total': 15.38986587524414}}
+2024-07-17 19:30:46,228 INFO    HandlerThread:8028 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-17 19:30:46,228 INFO    HandlerThread:8028 [system_monitor.py:probe():227] Publishing system info
+2024-07-17 19:30:46,228 INFO    HandlerThread:8028 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-17 19:30:46,231 DEBUG   SenderThread:8028 [sender.py:send():379] send: files
+2024-07-17 19:30:46,231 INFO    SenderThread:8028 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2024-07-17 19:30:46,304 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: python_packages
+2024-07-17 19:30:46,305 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: python_packages
+2024-07-17 19:30:46,305 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: stop_status
+2024-07-17 19:30:46,305 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: stop_status
+2024-07-17 19:30:46,306 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:46,568 DEBUG   SenderThread:8028 [sender.py:send():379] send: telemetry
+2024-07-17 19:30:47,000 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\requirements.txt
+2024-07-17 19:30:47,000 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log
+2024-07-17 19:30:47,000 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\wandb-metadata.json
+2024-07-17 19:30:47,061 INFO    wandb-upload_0:8028 [upload_job.py:push():130] Uploaded file C:\Users\grego\AppData\Local\Temp\tmpmfvklsc6wandb\c8buuuax-wandb-metadata.json
+2024-07-17 19:30:47,316 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:48,190 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:48,191 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:48,330 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:49,025 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log
+2024-07-17 19:30:49,344 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:50,214 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:50,214 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:50,353 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:50,623 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:30:51,365 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:52,235 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:52,235 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:52,380 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:53,395 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:54,252 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:54,252 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:54,409 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:55,421 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:56,266 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:56,267 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:56,332 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:30:56,427 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:57,440 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:58,292 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:58,292 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:30:58,451 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:30:59,466 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:00,314 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:00,314 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:00,479 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:01,318 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: stop_status
+2024-07-17 19:31:01,318 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: stop_status
+2024-07-17 19:31:01,492 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:01,559 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:31:02,322 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:02,322 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:02,507 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:03,522 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:04,334 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:04,335 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:04,534 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:05,549 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:06,351 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:06,351 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:06,563 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:07,354 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:31:07,577 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:08,361 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:08,361 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:08,591 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:09,592 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:10,373 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:10,373 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:10,606 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:11,620 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:12,372 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:31:12,379 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:12,379 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:12,633 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:13,635 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:14,392 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:14,392 ERROR   gpu       :8028 [interfaces.py:monitor():142] Failed to sample metric: Not Supported
+2024-07-17 19:31:14,512 DEBUG   SenderThread:8028 [sender.py:send():379] send: exit
+2024-07-17 19:31:14,512 INFO    SenderThread:8028 [sender.py:send_exit():586] handling exit code: 255
+2024-07-17 19:31:14,512 INFO    SenderThread:8028 [sender.py:send_exit():588] handling runtime: 28
+2024-07-17 19:31:14,513 INFO    SenderThread:8028 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-07-17 19:31:14,513 INFO    SenderThread:8028 [sender.py:send_exit():594] send defer
+2024-07-17 19:31:14,513 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,514 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 0
+2024-07-17 19:31:14,514 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,514 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 0
+2024-07-17 19:31:14,514 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 1
+2024-07-17 19:31:14,514 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,514 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 1
+2024-07-17 19:31:14,514 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,514 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 1
+2024-07-17 19:31:14,514 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 2
+2024-07-17 19:31:14,514 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,514 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 2
+2024-07-17 19:31:14,514 INFO    HandlerThread:8028 [system_monitor.py:finish():203] Stopping system monitor
+2024-07-17 19:31:14,514 DEBUG   SystemMonitor:8028 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-17 19:31:14,515 INFO    HandlerThread:8028 [interfaces.py:finish():200] Joined cpu monitor
+2024-07-17 19:31:14,515 DEBUG   SystemMonitor:8028 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-07-17 19:31:14,520 INFO    HandlerThread:8028 [interfaces.py:finish():200] Joined disk monitor
+2024-07-17 19:31:14,520 DEBUG   SystemMonitor:8028 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-07-17 19:31:14,552 ERROR   gpu       :8028 [interfaces.py:aggregate():159] Failed to serialize metric: division by zero
+2024-07-17 19:31:14,552 INFO    HandlerThread:8028 [interfaces.py:finish():200] Joined gpu monitor
+2024-07-17 19:31:14,552 INFO    HandlerThread:8028 [interfaces.py:finish():200] Joined memory monitor
+2024-07-17 19:31:14,553 INFO    HandlerThread:8028 [interfaces.py:finish():200] Joined network monitor
+2024-07-17 19:31:14,553 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,553 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 2
+2024-07-17 19:31:14,553 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 3
+2024-07-17 19:31:14,553 DEBUG   SenderThread:8028 [sender.py:send():379] send: stats
+2024-07-17 19:31:14,553 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,553 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 3
+2024-07-17 19:31:14,554 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,554 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 3
+2024-07-17 19:31:14,554 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 4
+2024-07-17 19:31:14,554 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,554 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 4
+2024-07-17 19:31:14,554 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,554 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 4
+2024-07-17 19:31:14,554 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 5
+2024-07-17 19:31:14,554 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,554 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 5
+2024-07-17 19:31:14,554 DEBUG   SenderThread:8028 [sender.py:send():379] send: summary
+2024-07-17 19:31:14,555 INFO    SenderThread:8028 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2024-07-17 19:31:14,555 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,555 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 5
+2024-07-17 19:31:14,555 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 6
+2024-07-17 19:31:14,555 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,555 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 6
+2024-07-17 19:31:14,555 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,555 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 6
+2024-07-17 19:31:14,557 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:31:14,780 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 7
+2024-07-17 19:31:14,780 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:14,780 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 7
+2024-07-17 19:31:14,780 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:14,780 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 7
+2024-07-17 19:31:15,282 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\config.yaml
+2024-07-17 19:31:15,282 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_created():271] file/dir created: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\wandb-summary.json
+2024-07-17 19:31:15,520 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:17,309 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log
+2024-07-17 19:31:18,520 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 8
+2024-07-17 19:31:18,520 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:18,520 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:18,520 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 8
+2024-07-17 19:31:18,520 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:18,521 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 8
+2024-07-17 19:31:18,521 INFO    SenderThread:8028 [job_builder.py:build():440] Attempting to build job artifact
+2024-07-17 19:31:18,521 INFO    SenderThread:8028 [job_builder.py:_get_source_type():569] is repo sourced job
+2024-07-17 19:31:18,551 INFO    SenderThread:8028 [job_builder.py:build():545] adding wandb-job metadata file
+2024-07-17 19:31:18,560 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:18,565 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 9
+2024-07-17 19:31:18,566 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:18,566 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:18,566 DEBUG   SenderThread:8028 [sender.py:send():379] send: artifact
+2024-07-17 19:31:18,566 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 9
+2024-07-17 19:31:19,338 INFO    Thread-16 :8028 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log
+2024-07-17 19:31:19,574 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:21,848 INFO    wandb-upload_1:8028 [upload_job.py:push():88] Uploaded file C:\Users\grego\AppData\Local\Temp\tmp2cact0zb\wandb-job.json
+2024-07-17 19:31:21,944 INFO    wandb-upload_0:8028 [upload_job.py:push():88] Uploaded file C:\Users\grego\AppData\Local\wandb\wandb\artifacts\staging\tmpvwrfam78
+2024-07-17 19:31:24,324 INFO    SenderThread:8028 [sender.py:send_artifact():1530] sent artifact job-https___github.com_Gregory-JP_psychic-chainsaw.git_vit_model_resnet_transfer_vit_model_RT_chest_xray.py - {'id': 'QXJ0aWZhY3Q6OTkyODM4MjIw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjI4MzM0MDQ5MQ==', 'latestArtifact': None}}
+2024-07-17 19:31:24,324 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:24,324 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: status_report
+2024-07-17 19:31:24,324 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 9
+2024-07-17 19:31:24,324 INFO    SenderThread:8028 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-07-17 19:31:24,400 INFO    SenderThread:8028 [dir_watcher.py:finish():388] scan: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files
+2024-07-17 19:31:24,400 INFO    SenderThread:8028 [dir_watcher.py:finish():402] scan save: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\config.yaml config.yaml
+2024-07-17 19:31:24,401 INFO    SenderThread:8028 [dir_watcher.py:finish():402] scan save: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log output.log
+2024-07-17 19:31:24,402 INFO    SenderThread:8028 [dir_watcher.py:finish():402] scan save: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\requirements.txt requirements.txt
+2024-07-17 19:31:24,403 INFO    SenderThread:8028 [dir_watcher.py:finish():402] scan save: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\wandb-metadata.json wandb-metadata.json
+2024-07-17 19:31:24,403 INFO    SenderThread:8028 [dir_watcher.py:finish():402] scan save: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\wandb-summary.json wandb-summary.json
+2024-07-17 19:31:24,405 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 10
+2024-07-17 19:31:24,405 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:24,405 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:24,406 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 10
+2024-07-17 19:31:24,406 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:24,406 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 10
+2024-07-17 19:31:24,406 INFO    SenderThread:8028 [file_pusher.py:finish():169] shutting down file pusher
+2024-07-17 19:31:24,623 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: keepalive
+2024-07-17 19:31:24,623 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:24,623 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:24,875 INFO    wandb-upload_0:8028 [upload_job.py:push():130] Uploaded file E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\output.log
+2024-07-17 19:31:24,920 INFO    wandb-upload_3:8028 [upload_job.py:push():130] Uploaded file E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\wandb-summary.json
+2024-07-17 19:31:25,012 INFO    wandb-upload_2:8028 [upload_job.py:push():130] Uploaded file E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\requirements.txt
+2024-07-17 19:31:25,128 INFO    wandb-upload_1:8028 [upload_job.py:push():130] Uploaded file E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\files\config.yaml
+2024-07-17 19:31:25,333 INFO    Thread-15 (_thread_body):8028 [sender.py:transition_state():614] send defer: 11
+2024-07-17 19:31:25,333 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:25,333 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 11
+2024-07-17 19:31:25,333 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:25,333 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 11
+2024-07-17 19:31:25,333 INFO    SenderThread:8028 [file_pusher.py:join():175] waiting for file pusher
+2024-07-17 19:31:25,334 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 12
+2024-07-17 19:31:25,334 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:25,334 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 12
+2024-07-17 19:31:25,334 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:25,334 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 12
+2024-07-17 19:31:25,334 INFO    SenderThread:8028 [file_stream.py:finish():601] file stream finish called
+2024-07-17 19:31:25,513 INFO    SenderThread:8028 [file_stream.py:finish():605] file stream finish is done
+2024-07-17 19:31:25,513 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 13
+2024-07-17 19:31:25,513 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:25,514 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 13
+2024-07-17 19:31:25,514 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:25,514 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 13
+2024-07-17 19:31:25,514 INFO    SenderThread:8028 [sender.py:transition_state():614] send defer: 14
+2024-07-17 19:31:25,514 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: defer
+2024-07-17 19:31:25,514 DEBUG   SenderThread:8028 [sender.py:send():379] send: final
+2024-07-17 19:31:25,514 INFO    HandlerThread:8028 [handler.py:handle_request_defer():184] handle defer: 14
+2024-07-17 19:31:25,514 DEBUG   SenderThread:8028 [sender.py:send():379] send: footer
+2024-07-17 19:31:25,514 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: defer
+2024-07-17 19:31:25,514 INFO    SenderThread:8028 [sender.py:send_request_defer():610] handle sender defer: 14
+2024-07-17 19:31:25,515 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:25,515 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: server_info
+2024-07-17 19:31:25,515 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: poll_exit
+2024-07-17 19:31:25,515 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:25,515 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: get_summary
+2024-07-17 19:31:25,515 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: server_info
+2024-07-17 19:31:25,515 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: sampled_history
+2024-07-17 19:31:25,516 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: internal_messages
+2024-07-17 19:31:25,689 DEBUG   SenderThread:8028 [sender.py:send_request():406] send_request: poll_exit
+2024-07-17 19:31:25,689 INFO    MainThread:8028 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2024-07-17 19:31:25,689 INFO    MainThread:8028 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2024-07-17 19:31:25,690 INFO    MainThread:8028 [wandb_run.py:_footer_sync_info():3950] logging synced files
+2024-07-17 19:31:25,690 DEBUG   HandlerThread:8028 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-17 19:31:25,690 INFO    HandlerThread:8028 [handler.py:finish():882] shutting down handler
+2024-07-17 19:31:26,520 INFO    WriterThread:8028 [datastore.py:close():296] close: E:\psychic-chainsaw\wandb\run-20240717_193045-16eaaqw3\run-16eaaqw3.wandb
+2024-07-17 19:31:26,694 INFO    SenderThread:8028 [sender.py:finish():1608] shutting down sender
+2024-07-17 19:31:26,694 INFO    SenderThread:8028 [file_pusher.py:finish():169] shutting down file pusher
+2024-07-17 19:31:26,694 INFO    SenderThread:8028 [file_pusher.py:join():175] waiting for file pusher

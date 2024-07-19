@@ -8,6 +8,20 @@ import torch.cuda.amp as amp
 import matplotlib.pyplot as plt
 from torch.optim.lr_scheduler import StepLR
 
+import wandb
+
+# Funções para configurar e usar o wandb
+def setup_wandb(project_name, run_name, config):
+    wandb.init(project=project_name, name=run_name, config=config)
+
+def log_metrics(epoch, train_loss, val_loss, val_accuracy):
+    wandb.log({
+        'epoch': epoch,
+        'train_loss': train_loss,
+        'val_loss': val_loss,
+        'val_accuracy': val_accuracy
+    })
+
 # Definição do Vision Transformer
 class PatchEmbedding(nn.Module):
     def __init__(self, in_channels=3, patch_size=16, emb_size=512, img_size=224):
@@ -117,6 +131,20 @@ def evaluate(model, loader, criterion, device):
     return total_loss / len(loader), correct / len(loader.dataset)
 
 if __name__ == '__main__':
+    # Configurações
+    config = {
+        'learning_rate': 3e-4,
+        'batch_size': 32,
+        'num_epochs': 50,
+        'optimizer': 'Adam',
+        'loss_function': 'BCEWithLogitsLoss',
+        'model': 'Vision Transformer',
+        'dataset': 'NIH Chest Xray'
+    }
+
+    # Autenticação no wandb
+    wandb.login(key='79d389395f5ad034f60cd189e8d6b583b5061b5a')
+
     # Definição do DataLoader
     transform = transforms.Compose([
         transforms.Resize((224, 224)),  # Redimensiona as imagens para 224x224
@@ -145,12 +173,15 @@ if __name__ == '__main__':
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=3e-4)
     scheduler = StepLR(optimizer, step_size=5, gamma=0.5)
-    num_epochs = 10
+    num_epochs = 50
 
     # Armazenar métricas
     train_losses = []
     val_losses = []
     val_accuracies = []
+
+    # Inicializar o wandb
+    setup_wandb(project_name='NIH-Chest-Xrays', run_name='Vision Transformer', config=config)
 
     # Loop de Treinamento
     for epoch in range(num_epochs):
@@ -165,7 +196,10 @@ if __name__ == '__main__':
         print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss}, Val Loss: {val_loss}, Accuracy: {val_acc}')
         scheduler.step()
 
+        log_metrics(epoch, train_loss, val_loss, val_acc)
+
     print("Treinamento concluído.")
+    
     torch.save(model.state_dict(), 'models/vision_transformer_cifar10.pth')
     print("Modelo salvo com sucesso.")
 

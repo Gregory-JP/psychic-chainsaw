@@ -10,6 +10,20 @@ import pandas as pd
 import torch
 import os
 
+import wandb
+
+# Funções para configurar e usar o wandb
+def setup_wandb(project_name, run_name, config):
+    wandb.init(project=project_name, name=run_name, config=config)
+
+def log_metrics(epoch, train_loss, val_loss, val_accuracy):
+    wandb.log({
+        'epoch': epoch,
+        'train_loss': train_loss,
+        'val_loss': val_loss,
+        'val_accuracy': val_accuracy
+    })
+
 
 # Definição do modelo CustomResNet
 class CustomResNet(nn.Module):
@@ -100,7 +114,21 @@ def evaluate(model, loader, criterion, device):
 
 if __name__ == '__main__':
     # Configurações
+    config = {
+        'learning_rate': 3e-4,
+        'batch_size': 32,
+        'num_epochs': 20,
+        'optimizer': 'Adam',
+        'loss_function': 'BCEWithLogitsLoss',
+        'model': 'ResNet18',
+        'dataset': 'NIH Chest X-rays'
+    }
+
+    # Autenticação no wandb
+    wandb.login(key='79d389395f5ad034f60cd189e8d6b583b5061b5a')
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
     if torch.cuda.is_available():
         print("Usando GPU:", torch.cuda.get_device_name(0))
     else:
@@ -152,12 +180,14 @@ if __name__ == '__main__':
     criterion = nn.BCEWithLogitsLoss()  # Loss para classificação multi-label
     optimizer = optim.Adam(model.parameters(), lr=3e-4)
     scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
-    num_epochs = 20
+    num_epochs = 50
 
     # Armazenar métricas
     train_losses = []
     val_losses = []
     val_accuracies = []
+
+    setup_wandb(project_name='NIH-Chest-Xrays', run_name='ResNet18_Experiment', config=config)
 
     # Loop de Treinamento
     for epoch in range(num_epochs):
@@ -171,6 +201,8 @@ if __name__ == '__main__':
 
         print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss}, Val Loss: {val_loss}, Accuracy: {val_acc}')
         scheduler.step()
+
+        log_metrics(epoch, train_loss, val_loss, val_acc)
 
     print("Treinamento concluído.")
     
@@ -197,6 +229,7 @@ if __name__ == '__main__':
 
     plt.tight_layout()
     plt.show()
+    plt.savefig('results/vit_RT_result_nih_chest_xray.png')
 
     # # Carregar o modelo salvo e testar
     # loaded_model = load_model('custom_resnet_nih_chest_xray.pth', device)
