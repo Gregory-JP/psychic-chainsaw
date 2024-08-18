@@ -137,9 +137,9 @@ if __name__ == '__main__':
         'batch_size': 32,
         'num_epochs': 50,
         'optimizer': 'Adam',
-        'loss_function': 'BCEWithLogitsLoss',
+        'loss_function': 'CrossEntropyLoss',
         'model': 'Vision Transformer',
-        'dataset': 'NIH Chest Xray'
+        'dataset': 'CIFAR-10'
     }
 
     # Autenticação no wandb
@@ -181,7 +181,7 @@ if __name__ == '__main__':
     val_accuracies = []
 
     # Inicializar o wandb
-    setup_wandb(project_name='NIH-Chest-Xrays', run_name='Vision Transformer', config=config)
+    setup_wandb(project_name='Cifar-10', run_name='Vision Transformer', config=config)
 
     # Loop de Treinamento
     for epoch in range(num_epochs):
