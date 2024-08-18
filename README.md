@@ -1,84 +1,138 @@
 # Psychic Chainsaw
 
-Este repositório contém o código e os arquivos relacionados ao meu trabalho final de curso sobre segmentação de imagens redes MAMBA (SSM).
+This repo contains the code and related files to my final paper about image segmentation and MAMBA (SSM).
 
-## Vision Transformer and ResNet Training on CIFAR-10
+# Vision Transformer and Mamba UNet for Medical Image Classification
 
-Este projeto implementa um Vision Transformer e um modelo ResNet para treinar e avaliar a performance no dataset CIFAR-10. Várias técnicas de otimização e melhoramento de desempenho foram usadas para garantir uma melhor acurácia e eficiência no treinamento.
+This repository contains implementations of custom deep learning models designed for medical image classification tasks, including the Vision Transformer (ViT) and Mamba UNet architectures. The models are specifically tailored for datasets like NIH Chest X-ray and Chest X-ray Pneumonia, and they leverage state-of-the-art techniques for efficient training and evaluation.
 
-## Dataset
+## Table of Contents
 
-O dataset CIFAR-10 consiste em 60.000 imagens coloridas 32x32 em 10 classes, com 6.000 imagens por classe. Há 50.000 imagens de treinamento e 10.000 imagens de teste.
+- [Overview](#overview)
+- [Datasets](#datasets)
+- [Model Architectures](#model-architectures)
+- [Training and Evaluation](#training-and-evaluation)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
 
-- **Classes**: avião, automóvel, pássaro, gato, cervo, cachorro, sapo, cavalo, navio, caminhão.
+## Overview
 
-## Técnicas Utilizadas
+This project provides implementations of deep learning models tailored for medical image classification. The primary models implemented are:
 
-### 1. **Data Augmentation**
-Para aumentar a diversidade do dataset de treinamento e melhorar a generalização do modelo, foram aplicadas várias transformações nas imagens:
+- **Custom Vision Transformer (ViT):** Adapted for the Chest X-ray Pneumonia dataset.
+- **Mamba UNet:** A hybrid model that combines the Vision Transformer with UNet architecture, designed for multi-label classification on the NIH Chest X-ray dataset.
 
-- Redimensionamento para 224x224 pixels.
-- Flip horizontal aleatório.
-- Rotação aleatória de até 10 graus.
-- Normalização.
+## Datasets
 
-### 2. **Mixed Precision Training**
-Para acelerar o treinamento e reduzir o uso de memória, foi utilizado o treinamento com precisão mista usando `torch.cuda.amp`.
+### NIH Chest X-ray Dataset
 
-### 3. **Scheduler para Taxa de Aprendizado**
-Um scheduler foi utilizado para reduzir a taxa de aprendizado ao longo do tempo, ajudando o modelo a convergir mais suavemente:
+The NIH Chest X-ray dataset consists of over 100,000 chest X-ray images with labels for 14 common thoracic diseases. The dataset is structured with the following key files:
 
-```python
-scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
+- **Images:** Stored in the `images` directory.
+- **Annotations:** Provided in the `Data_Entry_2017.csv` file.
+- **Train/Validation/Test Splits:** Predefined splits are given in the `train_val_list.txt` and `test_list.txt` files.
+
+### Chest X-ray Pneumonia Dataset
+
+The Chest X-ray Pneumonia dataset contains X-ray images classified into two categories: normal and pneumonia. The dataset structure includes:
+
+- **Train, Validation, and Test Folders:** Each folder contains subdirectories for `NORMAL` and `PNEUMONIA` images.
+
+## Model Architectures
+
+### Vision Transformer (ViT)
+
+The Vision Transformer is implemented with the following key features:
+
+- **Patch Embedding:** Converts image patches into embedded vectors.
+- **Multi-head Attention:** Captures relationships between different patches.
+- **Global Average Pooling:** Reduces the dimensionality for classification tasks.
+- **Mixed Precision Training:** Enhances efficiency during training.
+
+### Mamba UNet
+
+The Mamba UNet is a custom architecture that integrates transformer blocks into a UNet-like structure:
+
+- **VMamba Blocks:** Transformer blocks that incorporate multi-head attention and additional convolutional layers.
+- **Patch Embedding and Bottleneck Layers:** Capture and process spatial features.
+- **Decoder Path:** Mirrors the encoder structure with additional upsampling and convolutional layers for segmentation.
+
+## Training and Evaluation
+
+### Optimizations Implemented
+
+The training process for both models includes several optimizations:
+
+- **Mixed Precision Training:** Reduces memory usage and speeds up computations on GPUs.
+- **Gradient Accumulation:** Simulates larger batch sizes to optimize memory usage.
+- **Efficient Data Loading:** Utilizes multiple workers and `pin_memory=True` for faster data transfer.
+- **Learning Rate Scheduling:** Adaptive learning rate with `StepLR` scheduler.
+- **Model Complexity Reduction:** Reduced the depth, embedding size, and number of heads to improve training time.
+
+### Training Configuration
+
+- **Learning Rate:** `3e-4`
+- **Batch Size:** `32`
+- **Number of Epochs:** `50`
+- **Optimizer:** Adam
+- **Loss Functions:** 
+  - For multi-label classification (NIH dataset): `BCEWithLogitsLoss`
+  - For binary classification (Pneumonia dataset): `CrossEntropyLoss`
+
+### Training Procedure
+
+To train the models, simply run:
+
+```bash
+python mamba_unet_nih_crx8.py  # For NIH Chest X-ray
+python vision_transformer_chest_xray.py  # For Pneumonia dataset
 ```
 
-### 4. Modelos Utilizados
-Vision Transformer
+## Installation
 
-Um Vision Transformer foi inicialmente implementado, mas posteriormente substituído por um modelo ResNet18 pré-treinado para comparar a performance e eficiência.
-Custom ResNet (ResNet18)
+### Prerequisites
 
-Um modelo ResNet18 pré-treinado foi utilizado e ajustado para classificar as 10 classes do CIFAR-10.
+- Python 3.7+
+- PyTorch 1.8+
+- NVIDIA GPU with CUDA support
 
-```python
-class CustomResNet(nn.Module):
-    def __init__(self, num_classes=10):
-        super(CustomResNet, self).__init__()
-        self.model = models.resnet18(pretrained=True)
-        self.model.fc = nn.Linear(self.model.fc.in_features, num_classes)
-    
-    def forward(self, x):
-        return self.model(x)
+### Installing Dependencies
+
+Install the required Python packages using:
+`pip install -r requirements.txt`
+
+## Usage
+
+To use the pre-trained models for inference:
+
+```
+from mamba_unet_nih_crx8 import load_model  # For Mamba UNet
+from vision_transformer_chest_xray import load_model  # For ViT
+
+# Load the model
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = load_model('models/mamba_unet_nih_chest_xray_optimized.pth', device)  # Replace with the correct path
+model.eval()
+
+# Perform inference
+output = model(image_tensor)
 ```
 
-## Resultados e Visualização
+## Custom Training with Weights and Biases
 
-Durante o treinamento, as métricas de perda (loss) e acurácia foram armazenadas e visualizadas ao final do processo.
+TO track the training process with Weights and Biases (wandb):
+1. Set up your 'wandb' account and API key.
+2. Modify the script to include your 'wandb' credentials.
+3. Run the training script to automatically log metrics to 'wandb'.
 
-## Como Executar
-
-1. Clone o repositório
-```
-git clone <URL do Repositório>
-```
-```
-cd <Nome do Repositório>
-```
-
-2. Instale as dependências
-```
-pip install -r requirements.txt
-```
-
-3. Execute o scipt
-```python
-python main.py
-```
+## Results
+The results from the training and evaluation will be plotted and saved as figures. These include:
+- Loss over Epochs: Plot showing the training and validation loss.
+- Accuracy over Epochs: Plots showing the validation accuracy.
 
 ## Licença
 
-Este projeto está licenciado sob os termos da licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
-## Contato
-
-Para qualquer dúvida ou sugestão, entre em contato através do email: pitthangregory@gmail.com
+This project is licensed under the MIT License -see the LICENSE file for details.
