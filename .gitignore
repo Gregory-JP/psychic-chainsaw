@@ -9,3 +9,6 @@ wandb/
 # Ignore the .env file
 
 .env
+
+# Ignore the pycache folder
+__pycache__/
