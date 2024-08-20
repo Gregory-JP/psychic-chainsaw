@@ -167,6 +167,10 @@ def evaluate(model, loader, criterion, device):
     return total_loss / len(loader), correct / (len(loader.dataset) * len(loader.dataset[0][1]))
 
 if __name__ == '__main__':
+    from load_env import wandb_key
+
+    api_key = wandb_key()
+    
     # Configurações
     config = {
         'learning_rate': 3e-4,
@@ -179,7 +183,7 @@ if __name__ == '__main__':
     }
 
     # Autenticação no wandb
-    wandb.login(key='79d389395f5ad034f60cd189e8d6b583b5061b5a')
+    wandb.login(key=api_key)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

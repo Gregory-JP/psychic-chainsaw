@@ -5,3 +5,7 @@ data/
 *.pth
 
 wandb/
+
+# Ignore the .env file
+
+.env
