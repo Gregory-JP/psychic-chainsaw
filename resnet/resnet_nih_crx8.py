@@ -68,12 +68,6 @@ class NIHChestXrayDataset(Dataset):
         
         return image, label_tensor
 
-# Função para carregar o modelo salvo
-def load_model(filepath, device, num_classes=15):
-    model = CustomResNet(num_classes=num_classes).to(device)
-    state_dict = torch.load(filepath, map_location=device)
-    model.load_state_dict(state_dict)
-    return model
 
 # Função de Treinamento
 def train(model, loader, criterion, optimizer, device, scaler):
@@ -234,12 +228,3 @@ if __name__ == '__main__':
     plt.tight_layout()
     plt.show()
     plt.savefig('results/vit_RT_result_nih_chest_xray.png')
-
-    # # Carregar o modelo salvo e testar
-    # loaded_model = load_model('custom_resnet_nih_chest_xray.pth', device)
-    # loaded_model.eval()
-
-    # # Exemplo de previsão com o modelo carregado
-    # dummy_input = torch.randn(1, 3, 224, 224).to(device)  # Substitua por uma imagem real
-    # output = loaded_model(dummy_input)
-    # print(output)

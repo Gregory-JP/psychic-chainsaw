@@ -30,13 +30,6 @@ class CustomResNet(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-# Função para carregar o modelo salvo
-def load_model(filepath, device, num_classes=2):
-    model = CustomResNet(num_classes=num_classes).to(device)
-    state_dict = torch.load(filepath, map_location=device)
-    model.load_state_dict(state_dict)
-    return model
-
 # Função de Treinamento
 def train(model, loader, criterion, optimizer, device, scaler):
     model.train()
@@ -45,6 +38,7 @@ def train(model, loader, criterion, optimizer, device, scaler):
         images, labels = images.to(device), labels.to(device)
         
         optimizer.zero_grad()
+
         with amp.autocast():
             outputs = model(images)
             loss = criterion(outputs, labels)
