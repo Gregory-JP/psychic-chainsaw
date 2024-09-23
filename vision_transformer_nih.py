@@ -25,7 +25,7 @@ def load_image(image_path):
     return img_transformed
 
 # Example of loading an image for testing
-image_path = 'data/nih_cxr8/images/00030791_000.png'
+image_path = 'data/nih_cxr8/images/00013118_008.png'
 image_tensor = load_image(image_path)
 
 # Run inference
@@ -45,13 +45,14 @@ predicted_labels = {class_names[i]: probabilities[0][i].item() for i in range(le
 
 import matplotlib.pyplot as plt
 
+# Print predictions
+for label, prob in predicted_labels.items():
+    print(f'{label}: {prob:.4f}')
+
 # Visualize the image
 img = Image.open(image_path)
 plt.imshow(img)
 plt.axis('off')
 plt.show()
 
-# Print predictions
-for label, prob in predicted_labels.items():
-    print(f'{label}: {prob:.4f}')
 

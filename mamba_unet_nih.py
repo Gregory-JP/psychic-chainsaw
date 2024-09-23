@@ -3,14 +3,14 @@ import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
 import matplotlib.pyplot as plt
-from mamba_unet.mamba_unet_nih_crx8 import MambaUNet
+from mamba_unet.mamba_unet_nih_crx8 import MambaSSMUNet
 
 # Load the trained model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = MambaUNet(num_classes=15).to(device)
+model = MambaSSMUNet(num_classes=15).to(device)
 
 # Load the saved weights
-model.load_state_dict(torch.load('models/mamba_unet_nih_chest_xray_optimized.pth', map_location=device))
+model.load_state_dict(torch.load('models/mamba_unet_nih_chest_xray.pth', map_location=device))
 model.eval()
 
 # Define image transformations (same as training)

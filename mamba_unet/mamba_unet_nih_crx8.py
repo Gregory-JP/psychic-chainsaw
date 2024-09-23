@@ -26,7 +26,6 @@ def log_metrics(epoch, train_loss, val_loss, val_accuracy):
         'val_accuracy': val_accuracy
     })
 
-# Reduce depth and emb_size for faster computations
 class StateSpaceBlock(nn.Module):
     def __init__(self, emb_size=256, num_heads=4, mlp_dim=512, dropout=0.1):
         super(StateSpaceBlock, self).__init__()
@@ -281,7 +280,7 @@ if __name__ == '__main__':
 
         log_metrics(epoch, train_loss, val_loss, val_acc)
 
-    torch.save(model.state_dict(), 'models/mamba_unet_nih_chest_xray_optimized.pth')
+    torch.save(model.state_dict(), 'models/mamba_unet_nih_chest_xray.pth')
     print("Modelo salvo com sucesso.")
 
     epochs = range(1, num_epochs + 1)

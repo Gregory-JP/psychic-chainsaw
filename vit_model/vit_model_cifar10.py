@@ -7,8 +7,16 @@ from einops import rearrange
 import torch.cuda.amp as amp
 import matplotlib.pyplot as plt
 from torch.optim.lr_scheduler import StepLR
-
 import wandb
+import os
+import sys
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+
+from metrics.metric_tracker_class import MetricTracker
+
 
 # Funções para configurar e usar o wandb
 def setup_wandb(project_name, run_name, config):
@@ -187,23 +195,70 @@ if __name__ == '__main__':
     # Inicializar o wandb
     setup_wandb(project_name='Cifar-10', run_name='Vision Transformer', config=config)
 
+    # Instancia o rastreador de métricas e configura o dispositivo
+    metric_tracker = MetricTracker(device, task='multiclass', num_classes=10)
+
     # Loop de Treinamento
     for epoch in range(num_epochs):
         print(f"Iniciando época {epoch+1}/{num_epochs}")
-        train_loss = train(model, train_loader, criterion, optimizer, device, scaler)
-        val_loss, val_acc = evaluate(model, test_loader, criterion, device)
         
-        train_losses.append(train_loss)
-        val_losses.append(val_loss)
-        val_accuracies.append(val_acc)
+        # Resetar as métricas no início da época
+        metric_tracker.reset()
 
-        print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss}, Val Loss: {val_loss}, Accuracy: {val_acc}')
+        # Treinamento
+        train_loss = 0
+        model.train()
+
+        for images, labels in train_loader:
+            images, labels = images.to(device), labels.to(device)
+            optimizer.zero_grad()
+
+            with amp.autocast():
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+            
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+
+            train_loss += loss.item()
+
+            # Atualizar a métrica de acurácia do treinamento
+            metric_tracker.update_train(outputs, labels)
+
+        # Avaliação
+        val_loss = 0
+        model.eval()
+
+        with torch.no_grad():
+            for images, labels in test_loader:
+                images, labels = images.to(device), labels.to(device)
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+                val_loss += loss.item()
+
+                # Atualizar a métrica de acurácia da validação
+                metric_tracker.update_val(outputs, labels)
+
+        # Computar acurácia final
+        train_acc = metric_tracker.compute_train()
+        val_acc = metric_tracker.compute_val()
+
+        train_losses.append(train_loss / len(train_loader))
+        val_losses.append(val_loss / len(test_loader))
+        val_accuracies.append(val_acc.item())  # Armazenar o valor da acurácia
+
+        print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss / len(train_loader)}, Train Accuracy: {train_acc}, Val Loss: {val_loss / len(test_loader)}, Val Accuracy: {val_acc}')
+
         scheduler.step()
 
-        log_metrics(epoch, train_loss, val_loss, val_acc)
+        # Logging no wandb
+        log_metrics(epoch, train_loss / len(train_loader), val_loss / len(test_loader), val_acc)
 
+    # Conclusão do treinamento
     print("Treinamento concluído.")
-    
+
+    # Salvando o modelo treinado
     torch.save(model.state_dict(), 'models/vision_transformer_cifar10.pth')
     print("Modelo salvo com sucesso.")
 
