@@ -32,7 +32,7 @@ class StateSpaceBlock(nn.Module):
         self.norm1 = nn.LayerNorm(emb_size)
         self.norm2 = nn.LayerNorm(emb_size)
         
-        # Mecanismo de atenção multi-cabeça (mantido do modelo original)
+        # Mecanismo de atenção multi-cabeça
         self.attention = nn.MultiheadAttention(embed_dim=emb_size, num_heads=num_heads, dropout=dropout)
 
         # MLP para processamento não-linear
@@ -44,30 +44,39 @@ class StateSpaceBlock(nn.Module):
             nn.Dropout(dropout),
         )
         
-        # Inicialização do estado latente (uma camada Linear simples para atualização)
+        # Atualização do estado latente
         self.state_update = nn.Linear(emb_size, emb_size)
-        self.conv = nn.Conv2d(emb_size, emb_size, kernel_size=3, padding=1, groups=emb_size)
+        self.conv = nn.Conv1d(emb_size, emb_size, kernel_size=3, padding=1, groups=emb_size)
         self.silu = nn.SiLU()
 
     def forward(self, x, state):
-        # Atualizamos o estado latente com base na entrada atual
+        # x e state têm forma [B, N, E]
+        print(f"Shape antes da atenção: {x.shape}")
+
+        # Atualiza o estado latente
         state = self.state_update(state) + x
 
-        # Normalização e atenção
+        # Normalização
         normed_x = self.norm1(x)
-        attn_output, _ = self.attention(normed_x, normed_x, normed_x)
+
+        # Atenção multi-cabeça (transpor para [N, B, E])
+        normed_x_t = normed_x.transpose(0, 1)
+        attn_output, _ = self.attention(normed_x_t, normed_x_t, normed_x_t)
+        attn_output = attn_output.transpose(0, 1)  # Volta para [B, N, E]
+
         x = x + attn_output
-        
-        # Reorganização e convolução
+
+        # Resíduo e convolução 1D
         res = x
-        x = rearrange(x, 'b n e -> b e n 1')
+        x = x.transpose(1, 2)  # De [B, N, E] para [B, E, N]
         x = self.silu(self.conv(x))
-        x = rearrange(x, 'b e n 1 -> b n e')
-        
-        # Atualização final usando a MLP e o estado latente atualizado
+        x = x.transpose(1, 2)  # Volta para [B, N, E]
+
+        # Atualização final com MLP
         x = res + x + state
         x = x + self.mlp(self.norm2(x))
         return x, state
+
 
 class MambaSSMUNet(nn.Module):
     def __init__(self, img_size=112, patch_size=16, in_channels=3, num_classes=15, emb_size=256, num_heads=4, depth=4, mlp_dim=512, dropout=0.1):
@@ -99,7 +108,7 @@ class MambaSSMUNet(nn.Module):
 
     def forward(self, x):
         B, C, H, W = x.shape
-        
+
         # Embed de patches
         x = self.patch_embed(x)
         x = rearrange(x, 'b e h w -> b (h w) e')
@@ -108,8 +117,8 @@ class MambaSSMUNet(nn.Module):
         # Incluímos o token de classe (CLS token)
         x = torch.cat((self.cls_token.expand(B, -1, -1), x), dim=1)
 
-        # Inicializamos o estado latente
-        state = self.initial_state.expand(B, -1)
+        # Inicializamos o estado latente para corresponder ao x
+        state = self.initial_state.expand(B, x.size(1), -1).clone()
 
         # Passamos o estado latente através do encoder
         for layer in self.encoder:
@@ -123,13 +132,14 @@ class MambaSSMUNet(nn.Module):
             x, state = layer(x, state)
 
         # Reconstrução da imagem
-        x = rearrange(x[:, 1:], 'b (h w) e -> b e h w', h=H // 16, w=W // 16)
+        x = rearrange(x[:, 1:], 'b (h w) e -> b e h w', h=H // self.patch_embed.stride[0], w=W // self.patch_embed.stride[0])
         x = F.interpolate(x, size=(H, W), mode='bilinear', align_corners=False)
         x = self.head(x)
 
         # Pooling global
         x = torch.mean(x, dim=[2, 3])  # Redução de H e W para 1x1
         return x
+
 
 # Dataset and Dataloaders
 class NIHChestXrayDataset(Dataset):
@@ -202,9 +212,9 @@ def evaluate(model, loader, criterion, device):
     return total_loss / len(loader), correct / (len(loader.dataset) * len(loader.dataset[0][1]))
 
 if __name__ == '__main__':
-    from load_env import wandb_key
+    import load_env as env
 
-    api_key = wandb_key()
+    api_key = env.wandb_key()
 
     config = {
         'learning_rate': 3e-4,
