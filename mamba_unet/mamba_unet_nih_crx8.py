@@ -9,9 +9,10 @@ from PIL import Image
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-import torch.cuda.amp as amp
+import torch.amp as amp
 from torch.optim.lr_scheduler import StepLR
 import wandb
+
 
 
 # Funções para configurar e usar o wandb
@@ -51,7 +52,7 @@ class StateSpaceBlock(nn.Module):
 
     def forward(self, x, state):
         # x e state têm forma [B, N, E]
-        print(f"Shape antes da atenção: {x.shape}")
+        # print(f"Shape antes da atenção: {x.shape}")
 
         # Atualiza o estado latente
         state = self.state_update(state) + x
@@ -182,7 +183,7 @@ def train(model, loader, criterion, optimizer, device, scaler, accumulation_step
     for i, (images, labels) in enumerate(loader):
         images, labels = images.to(device), labels.to(device)
         
-        with amp.autocast():
+        with amp.autocast('cuda'):
             outputs = model(images)
             loss = criterion(outputs, labels) / accumulation_steps
         
@@ -229,8 +230,12 @@ if __name__ == '__main__':
     wandb.login(key=api_key)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = MambaSSMUNet(num_classes=15).to(device)
-    scaler = amp.GradScaler()
+    
+    print(f"Dispositivo: {torch.cuda.get_device_name(0)}")
+    print(f'Device: {device}')
+
+    model = MambaSSMUNet(num_classes=15).to('cuda')
+    scaler = torch.amp.GradScaler()
 
     criterion = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr=3e-4)

@@ -150,62 +150,71 @@ def log_metrics(epoch, train_loss, val_loss=None, val_accuracy=None):
     wandb.log(metrics)
 
 if __name__ == '__main__':
-    import torch
-    from torchvision import datasets, transforms
-    from torch.utils.data import DataLoader
+
     import torch.optim as optim
-    import torch.nn as nn
+    from torch.utils.data import DataLoader
+    from torchvision import datasets, transforms
 
-    import load_env as env
+    # from load_env import  wandb_key
 
-    api_key = env.wandb_key()
+    # api_key = wandb_key()
 
     # Configuração do projeto e dos hiperparâmetros para o W&B
     config = {
         'learning_rate': 0.001,
-        'batch_size': 8,
-        'num_epochs': 5,
+        'batch_size': 32,  # Ajuste o batch size para 32
+        'num_epochs': 100,
         'optimizer': 'Adam',
         'loss_function': 'CrossEntropyLoss',
         'model': 'Vim',
-        'dataset': 'CIFAR-10'
+        'dataset': 'Chest X-ray Pneumonia'
     }
 
-    wandb.login(key=api_key)
+    # wandb.login(key=api_key)
+    wandb.login(key='')
 
-    setup_wandb(project_name='CIFAR-10-Vim', run_name='Vim_Training_Run', config=config)
+    setup_wandb(project_name='Chest-Xray-Pneumonia', run_name='Vim_Training_Run', config=config)
 
-    # Transformações para os dados
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),  # Redimensionar para o tamanho necessário
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    # Transformações para os dados de treinamento e validação
+    transform_train = transforms.Compose([
+        transforms.Resize((224, 224)),  # tamanho correspondente ao modelo? 
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(10),
         transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,))
+        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
     ])
 
-    # Carregar o conjunto de dados CIFAR-10
-    train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
-    test_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
+    transform_val = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+    ])
 
-    # Dataloader
-    train_loader = DataLoader(train_dataset, batch_size=config['batch_size'], shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=config['batch_size'], shuffle=False)
+    # Carregar os datasets usando ImageFolder
+    train_dataset = datasets.ImageFolder(root='data/chest_xray/train', transform=transform_train)
+    val_dataset = datasets.ImageFolder(root='data/chest_xray/val', transform=transform_val)
+    test_dataset = datasets.ImageFolder(root='data/chest_xray/test', transform=transform_val)
 
-    # Instanciar o modelo
+    # Dataloaders
+    train_loader = DataLoader(dataset=train_dataset, batch_size=config['batch_size'], shuffle=True, num_workers=4, pin_memory=True)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=config['batch_size'], shuffle=False, num_workers=4, pin_memory=True)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=config['batch_size'], shuffle=False, num_workers=4, pin_memory=True)
+
+    # Instanciar o modelo com num_classes=2
     model = Vim(
-        dim=128,  # Diminuir a dimensão para economizar memória
+        dim=128,  
         dt_rank=16,
         dim_inner=128,
         d_state=128,
-        num_classes=10,
+        num_classes=2,  # Ajustado para 2 classes
         image_size=224,
-        patch_size=32,  # Certificar-se de que 224 é divisível por 32
+        patch_size=32,
         channels=3,
         dropout=0.1,
-        depth=6  # Reduzir a profundidade para diminuir o consumo de memória
-    )
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = model.to(device)
+        depth=6  
+    ).to(device)
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=config['learning_rate'])
@@ -231,35 +240,56 @@ if __name__ == '__main__':
             optimizer.step()
 
         avg_loss = running_loss / len(train_loader)
+
         print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}')
         
+        # Validação a cada época
+        model.eval()
+        correct = 0
+        total = 0
+        val_loss = 0.0
+
+        with torch.no_grad():
+            for inputs, labels in val_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+                val_loss += loss.item()
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+
+        accuracy = 100 * correct / total
+        avg_val_loss = val_loss / len(val_loader)
+        print(f'Validation Loss: {avg_val_loss:.4f}, Accuracy: {accuracy:.2f}%')
+
         # Log do W&B
-        log_metrics(epoch, train_loss=avg_loss)
+        log_metrics(epoch, train_loss=avg_loss, val_loss=avg_val_loss, val_accuracy=accuracy)
 
     print('Finished Training')
 
-    # Avaliação
+    # Avaliação no conjunto de teste
     model.eval()
     correct = 0
     total = 0
-    val_loss = 0.0
+    test_loss = 0.0
 
     with torch.no_grad():
         for inputs, labels in test_loader:
             inputs, labels = inputs.to(device), labels.to(device)
             outputs = model(inputs)
             loss = criterion(outputs, labels)
-            val_loss += loss.item()
+            test_loss += loss.item()
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    accuracy = 100 * correct / total
-    avg_val_loss = val_loss / len(test_loader)
-    print(f'Validation Loss: {avg_val_loss:.4f}, Accuracy: {accuracy:.2f}%')
+    test_accuracy = 100 * correct / total
+    avg_test_loss = test_loss / len(test_loader)
+    print(f'Test Loss: {avg_test_loss:.4f}, Test Accuracy: {test_accuracy:.2f}%')
 
-    # Log final do W&B para validação
-    log_metrics(num_epochs, train_loss=avg_loss, val_loss=avg_val_loss, val_accuracy=accuracy)
+    # Log final do W&B para teste
+    wandb.log({'test_loss': avg_test_loss, 'test_accuracy': test_accuracy})
 
-    torch.save(model.state_dict(), 'models/vim_model.pth')
+    torch.save(model.state_dict(), 'models/vim_chest_xray_model.pth')
     print('Modelo salvo com sucesso!')

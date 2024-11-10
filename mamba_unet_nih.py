@@ -52,12 +52,12 @@ class_names = [
 # Display the predicted probabilities
 predicted_labels = {class_names[i]: output_probs[0][i].item() for i in range(len(class_names))}
 
+# Print the predictions
+for label, prob in predicted_labels.items():
+    print(f'{label}: {prob:.4f}')
+
 # Visualize the image and predictions
 img = Image.open(image_path)
 plt.imshow(img)
 plt.axis('off')
 plt.show()
-
-# Print the predictions
-for label, prob in predicted_labels.items():
-    print(f'{label}: {prob:.4f}')

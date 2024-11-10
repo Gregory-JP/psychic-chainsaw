@@ -1,5 +1,9 @@
 import torch
 
-print(torch.cuda.is_available())  # Deve retornar True se a GPU estiver disponível
-print(torch.cuda.current_device())  # Deve retornar o índice da GPU atual, geralmente 0
-print(torch.cuda.get_device_name(0))  # Deve retornar o nome da GPU, por exemplo, 'NVIDIA GeForce RTX 4060'
+if torch.cuda.is_available():
+    print(f"GPU: {torch.cuda.get_device_name(0)} is available.")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    print(device)
+else:
+    print("No GPU available. Training will run on CPU.")

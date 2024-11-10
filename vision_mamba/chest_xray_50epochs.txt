@@ -1,0 +1,102 @@
+Epoch [1/50], Loss: 0.7131
+Validation Loss: 0.6968, Accuracy: 50.00%
+Epoch [2/50], Loss: 0.6919
+Validation Loss: 0.7120, Accuracy: 50.00%
+Epoch [3/50], Loss: 0.6166
+Validation Loss: 0.7986, Accuracy: 43.75%
+Epoch [4/50], Loss: 0.4982
+Validation Loss: 0.9692, Accuracy: 56.25%
+Epoch [5/50], Loss: 0.4306
+Validation Loss: 0.9146, Accuracy: 56.25%
+Epoch [6/50], Loss: 0.3618
+Validation Loss: 1.1063, Accuracy: 56.25%
+Epoch [7/50], Loss: 0.3993
+Validation Loss: 0.7491, Accuracy: 56.25%
+Epoch [8/50], Loss: 0.3576
+Validation Loss: 1.2685, Accuracy: 56.25%
+Epoch [9/50], Loss: 0.3323
+Validation Loss: 1.7219, Accuracy: 56.25%
+Epoch [10/50], Loss: 0.3156
+Validation Loss: 0.9489, Accuracy: 56.25%
+Epoch [11/50], Loss: 0.3021
+Validation Loss: 1.2171, Accuracy: 56.25%
+Epoch [12/50], Loss: 0.3062
+Validation Loss: 0.9183, Accuracy: 62.50%
+Epoch [13/50], Loss: 0.3002
+Validation Loss: 0.9498, Accuracy: 62.50%
+Epoch [14/50], Loss: 0.3342
+Validation Loss: 1.3734, Accuracy: 50.00%
+Epoch [15/50], Loss: 0.2887
+Validation Loss: 1.0948, Accuracy: 56.25%
+Epoch [16/50], Loss: 0.2655
+Validation Loss: 0.9343, Accuracy: 62.50%
+Epoch [17/50], Loss: 0.2805
+Validation Loss: 0.8772, Accuracy: 62.50%
+Epoch [18/50], Loss: 0.2574
+Validation Loss: 0.8700, Accuracy: 62.50%
+Epoch [19/50], Loss: 0.2687
+Validation Loss: 0.8477, Accuracy: 68.75%
+Epoch [20/50], Loss: 0.2613
+Validation Loss: 0.8740, Accuracy: 68.75%
+Epoch [21/50], Loss: 0.2422
+Validation Loss: 0.6017, Accuracy: 68.75%
+Epoch [22/50], Loss: 0.2546
+Validation Loss: 0.6618, Accuracy: 75.00%
+Epoch [23/50], Loss: 0.2646
+Validation Loss: 1.0920, Accuracy: 56.25%
+Epoch [24/50], Loss: 0.2458
+Validation Loss: 0.5058, Accuracy: 68.75%
+Epoch [25/50], Loss: 0.2279
+Validation Loss: 1.6334, Accuracy: 50.00%
+Epoch [26/50], Loss: 0.2431
+Validation Loss: 1.4932, Accuracy: 56.25%
+Epoch [27/50], Loss: 0.2385
+Validation Loss: 0.7566, Accuracy: 68.75%
+Epoch [28/50], Loss: 0.2381
+Validation Loss: 0.6964, Accuracy: 56.25%
+Epoch [29/50], Loss: 0.2268
+Validation Loss: 0.6872, Accuracy: 81.25%
+Epoch [30/50], Loss: 0.2203
+Validation Loss: 0.7198, Accuracy: 62.50%
+Epoch [31/50], Loss: 0.2498
+Validation Loss: 0.7630, Accuracy: 62.50%
+Epoch [32/50], Loss: 0.2384
+Validation Loss: 0.8873, Accuracy: 68.75%
+Epoch [33/50], Loss: 0.2266
+Validation Loss: 0.7346, Accuracy: 68.75%
+Epoch [34/50], Loss: 0.2273
+Validation Loss: 1.1771, Accuracy: 62.50%
+Epoch [35/50], Loss: 0.2320
+Validation Loss: 0.8869, Accuracy: 68.75%
+Epoch [36/50], Loss: 0.2079
+Validation Loss: 0.7841, Accuracy: 68.75%
+Epoch [37/50], Loss: 0.2088
+Validation Loss: 1.1486, Accuracy: 62.50%
+Epoch [38/50], Loss: 0.2196
+Validation Loss: 0.5890, Accuracy: 62.50%
+Epoch [39/50], Loss: 0.2183
+Validation Loss: 1.4445, Accuracy: 56.25%
+Epoch [40/50], Loss: 0.2234
+Validation Loss: 0.7674, Accuracy: 56.25%
+Epoch [41/50], Loss: 0.1910
+Validation Loss: 0.9117, Accuracy: 62.50%
+Epoch [42/50], Loss: 0.2317
+Validation Loss: 0.7542, Accuracy: 62.50%
+Epoch [43/50], Loss: 0.1906
+Validation Loss: 0.6959, Accuracy: 75.00%
+Epoch [44/50], Loss: 0.2002
+Validation Loss: 0.8505, Accuracy: 68.75%
+Epoch [45/50], Loss: 0.1878
+Validation Loss: 1.3593, Accuracy: 56.25%
+Epoch [46/50], Loss: 0.1948
+Validation Loss: 0.7618, Accuracy: 75.00%
+Epoch [47/50], Loss: 0.1990
+Validation Loss: 0.4970, Accuracy: 87.50%
+Epoch [48/50], Loss: 0.2039
+Validation Loss: 0.9449, Accuracy: 62.50%
+Epoch [49/50], Loss: 0.1781
+Validation Loss: 0.6432, Accuracy: 87.50%
+Epoch [50/50], Loss: 0.1980
+Validation Loss: 0.8439, Accuracy: 68.75%
+Finished Training
+Test Loss: 0.4465, Test Accuracy: 82.53%

@@ -33,7 +33,7 @@ def predict_image(image_path, model, transform):
     return predicted.item()
 
 # Carregar e prever uma imagem
-image_path = 'data/chest_xray/val/PNEUMONIA/person1946_bacteria_4874.jpeg'  # Insira o caminho da imagem aqui
+image_path = 'data/chest_xray/val/PNEUMONIA/person1946_bacteria_4874.jpeg'
 prediction = predict_image(image_path, model, transform)
 
 # Exibir a imagem e o resultado da predição
