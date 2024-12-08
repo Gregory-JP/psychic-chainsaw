@@ -3,6 +3,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 from vit_model.vit_model_nih_crx8 import VisionTransformer
 
+
 # Load the model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = VisionTransformer(num_classes=15).to(device)
@@ -54,5 +55,3 @@ img = Image.open(image_path)
 plt.imshow(img)
 plt.axis('off')
 plt.show()
-
-

@@ -192,5 +192,5 @@ if __name__ == '__main__':
         log_metrics(epoch, train_loss, val_loss, val_acc)
         scheduler.step()
 
-    torch.save(model.state_dict(), 'mamba_unet_chest_xray.pth')
+    torch.save(model.state_dict(), 'models/mamba_unet_chest_xray.pth')
     print("Modelo salvo com sucesso!")
