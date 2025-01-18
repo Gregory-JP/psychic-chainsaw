@@ -188,7 +188,7 @@ if __name__ == '__main__':
         'dataset': 'NIH Chest X-rays'
     }
 
-    wandb.login(key='')
+    wandb.login(key='ac22f8f654233aa519a442a6947d44d2c44f72c8')
 
     setup_wandb(project_name='NIH-Chest-Xrays', run_name='Vim_Training_Run', config=config)
 

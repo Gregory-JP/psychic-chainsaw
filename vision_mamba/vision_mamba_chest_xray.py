@@ -161,9 +161,9 @@ if __name__ == '__main__':
 
     # Configuração do projeto e dos hiperparâmetros para o W&B
     config = {
-        'learning_rate': 0.001,
-        'batch_size': 32,  # Ajuste o batch size para 32
-        'num_epochs': 100,
+        'learning_rate': 3e-4,
+        'batch_size': 32,
+        'num_epochs': 50,
         'optimizer': 'Adam',
         'loss_function': 'CrossEntropyLoss',
         'model': 'Vim',

@@ -12,3 +12,9 @@ wandb/
 
 # Ignore the pycache folder
 __pycache__/
+
+graficos/
+
+models_metrics.py.txt
+
+resnet/
